@@ -1,5 +1,6 @@
 import './App.css'
 import { useState } from 'react'
+import 'styles/main.scss'
 
 function App() {
   const [email, setEmail] = useState('')
@@ -40,7 +41,7 @@ function App() {
             id="password"
             type="password"
             name="password"
-            value={email}
+            value={password}
             onChange={onChange}
             placeholder="비밀번호를 입력해주세요."
             autoFocus

@@ -1,0 +1,110 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+
+  @include respond(big-desktop) {
+  }
+
+  @include respond(tab-land) {
+    // width < 1200?
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+  }
+
+  @include respond(phone) {
+    // width < 600?
+  }
+}
+
+a {
+  &:link,
+  &:visited {
+    color: $color-purple-dark;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+
+  &:hover,
+  &:active {
+    color: $color-purple;
+  }
+}
+
+button {
+  background-color: $color-purple;
+  color: #fff;
+  border: none;
+  padding: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+  color: $color-grey-dark;
+  font-size: 14px;
+}
+
+input {
+  border: 1px solid #eee;
+  padding: 15px;
+  width: 100%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+    border: 1px solid $color-purple;
+  }
+}
+
+textarea {
+  border: 1px solid #eee;
+  padding: 15px;
+  width: 100%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+    border: 1px solid $color-purple;
+  }
+}
