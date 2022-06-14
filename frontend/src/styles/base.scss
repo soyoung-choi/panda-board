@@ -60,7 +60,7 @@ button {
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
   box-sizing: border-box;
   
   &:focus {
@@ -72,7 +72,7 @@ label {
   margin-bottom: 10px;
   display: block;
   color: $color-grey-dark;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 input {
@@ -86,7 +86,7 @@ input {
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
-  font-size: 16px;
+  font-size: 15px;
 
   &:focus {
     outline: none;
@@ -101,7 +101,7 @@ textarea {
   margin-bottom: 10px;
   box-sizing: border-box;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 15px;
 
   &:focus {
     outline: none;
