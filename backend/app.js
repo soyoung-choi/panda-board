@@ -7,6 +7,10 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const cors = require('cors')
+const passport = require('passport')
+const passportConfig = require('./passport')
+const session = require('express-session')
+const FileStore = require('session-file-store')(session)
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
@@ -39,6 +43,26 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+
+passportConfig()
+
+// req.session
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: process.env.COOKIE_SECRET, // 서명에 필요한 값
+    cookie: {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60,
+      secure: false, // https일 때 적용
+    },
+    store: new FileStore(),
+  })
+)
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
