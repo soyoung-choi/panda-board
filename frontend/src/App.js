@@ -44,13 +44,12 @@ function App() {
             value={password}
             onChange={onChange}
             placeholder="비밀번호를 입력해주세요."
-            autoFocus
           />
           <button>로그인</button>
-          <a href="http://localhost:3000/auth/kakao">
-            <img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg" />{' '}
-          </a>
         </form>
+        <a href="http://localhost:3000/auth/kakao">
+          <img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg" />{' '}
+        </a>
       </div>
     </>
   )
