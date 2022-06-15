@@ -47,9 +47,11 @@ a {
   }
 }
 
-button {
+button,
+.btn {
   background-color: $color-purple;
   color: #fff;
+  text-align: center;
   border: none;
   padding: 20px;
   font-weight: 500;
@@ -62,6 +64,7 @@ button {
   width: 100%;
   font-size: 15px;
   box-sizing: border-box;
+  margin-bottom: 20px;
   
   &:focus {
     outline: none;
@@ -71,8 +74,8 @@ button {
 label {
   margin-bottom: 10px;
   display: block;
-  color: $color-grey-dark;
   font-size: 15px;
+  color: $color-grey-dark-3;
 }
 
 input {
@@ -87,6 +90,7 @@ input {
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
   font-size: 15px;
+  margin-bottom: 20px;
 
   &:focus {
     outline: none;
