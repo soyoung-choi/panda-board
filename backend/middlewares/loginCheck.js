@@ -3,9 +3,7 @@ exports.isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) {
     next()
   } else {
-    res.status(403).json({
-      message: '로그인 후 이용해주세요.',
-    })
+    res.redirect('/auth/login')
   }
 }
 

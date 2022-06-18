@@ -13,8 +13,9 @@ const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 
 const indexRouter = require('./routes/index')
-const usersRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
+const usersRouter = require('./routes/users')
+const postsRouter = require('./routes/posts')
 
 const { sequelize } = require('./models')
 
@@ -43,7 +44,7 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '../frontend/build')))
 
 passportConfig()
 
@@ -66,8 +67,17 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use('/', indexRouter)
-app.use('/users', usersRouter)
 app.use('/auth', authRouter)
+app.use('/users', usersRouter)
+app.use('/posts', postsRouter)
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
+})
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

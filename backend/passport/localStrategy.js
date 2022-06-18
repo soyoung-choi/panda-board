@@ -7,7 +7,7 @@ module.exports = () => {
   passport.use(
     new LocalStrategy(
       {
-        usernameField: 'email', // form > input name
+        usernameField: 'email', // input name
         passowrdField: 'password',
         session: true, // 세션 저장 여부
       },

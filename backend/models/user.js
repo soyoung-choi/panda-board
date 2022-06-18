@@ -14,10 +14,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
         unique: true,
       },
-      nickname: {
-        type: DataTypes.STRING(15),
-        allowNull: false,
-      },
       password: {
         type: DataTypes.STRING(100), // 해쉬화하면 길어지기 떄문에 100글자
         allowNull: true, // 카카오 로그인은 비번 필요없으니
@@ -27,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: 'local',
       },
-      sns_id: {
+      snsId: {
         type: DataTypes.STRING(30),
         allowNull: true,
       },

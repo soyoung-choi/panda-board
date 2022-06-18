@@ -1,12 +1,13 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Panda from 'components/Panda'
-import axios from 'axios'
+import { createUser } from 'apis/users'
 
 const SignUp = () => {
   const [email, setEmail] = useState('')
-  const [nickname, setNickname] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
+  const navigate = useNavigate()
 
   const onChange = (e) => {
     const {
@@ -15,8 +16,6 @@ const SignUp = () => {
 
     if (name === 'email') {
       setEmail(value)
-    } else if (name === 'nickname') {
-      setNickname(value)
     } else if (name === 'password') {
       setPassword(value)
     } else if (name === 'password_confirm') {
@@ -28,16 +27,16 @@ const SignUp = () => {
     e.preventDefault()
 
     try {
-      await axios.post('http://localhost:3000/users/signup', {
-        email,
-        nickname,
-        password,
-        passwordConfirm,
-      })
+      const result = await createUser(email, password, passwordConfirm)
+      console.log(result)
+      if (!result.data.success) {
+        alert(result.data.message)
+      } else {
+        alert(result.data.message)
+        navigate('/login')
+      }
     } catch (error) {
-      console.error(error)
-    } finally {
-      window.location.href = '/login'
+      alert(error.response.data.message)
     }
   }
 
@@ -55,16 +54,7 @@ const SignUp = () => {
           placeholder="이메일을 입력해주세요."
           autoFocus
         />
-        <label for="nickname">닉네임</label>
-        <input
-          id="nickname"
-          type="text"
-          name="nickname"
-          value={nickname}
-          onChange={onChange}
-          placeholder="닉네임을 입력해주세요."
-          autoFocus
-        />
+
         <label for="password">비밀번호</label>
         <input
           id="password"
@@ -74,6 +64,7 @@ const SignUp = () => {
           onChange={onChange}
           placeholder="비밀번호를 입력해주세요."
         />
+
         <label for="password_confirm">비밀번호 확인</label>
         <input
           id="password_confirm"
@@ -84,6 +75,9 @@ const SignUp = () => {
           placeholder="비밀번호를 다시 입력해주세요."
         />
         <button>회원가입</button>
+        <a className="description" href="/login">
+          뒤로가기
+        </a>
       </form>
     </>
   )

@@ -56,11 +56,11 @@ button,
   padding: 20px;
   font-weight: 500;
   cursor: pointer;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
   width: 100%;
   font-size: 15px;
   box-sizing: border-box;
@@ -79,16 +79,16 @@ label {
 }
 
 input {
-  border: 1px solid #eee;
+  border: 1px solid $color-grey-light-1;
   padding: 15px;
   width: 100%;
   margin-bottom: 10px;
   box-sizing: border-box;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
   font-size: 15px;
   margin-bottom: 20px;
 
@@ -96,19 +96,33 @@ input {
     outline: none;
     border: 1px solid $color-purple;
   }
+
+  &::placeholder {
+    color: $color-grey-light-2;
+  }
 }
 
 textarea {
-  border: 1px solid #eee;
+  border: 1px solid $color-grey-light-1;
   padding: 15px;
   width: 100%;
   margin-bottom: 10px;
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
   font-size: 15px;
-
+  resize: none;
+  height: 150px;
+  
   &:focus {
     outline: none;
     border: 1px solid $color-purple;
+  }
+
+  &::placeholder {
+    color: $color-grey-light-2;
   }
 }
