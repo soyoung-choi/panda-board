@@ -22,3 +22,11 @@ export const fetchPost = (id) => {
 export const deletePost = (id) => {
   return instance.delete(`/posts/${id}`)
 }
+
+// 포스트 수정
+export const patchPost = (id, title, contents) => {
+  return instance.patch(`/posts/${id}`, {
+    title,
+    contents,
+  })
+}

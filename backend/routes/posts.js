@@ -60,4 +60,26 @@ router.delete('/:id', verifyToken, async (req, res, next) => {
   }
 })
 
+// 포스트 수정
+router.patch('/:id', verifyToken, async (req, res, next) => {
+  const { id } = req.params
+  const { title, contents } = req.body
+
+  try {
+    await Post.update(
+      {
+        title: title,
+        contents: contents,
+      },
+      { where: { id } }
+    )
+
+    res.json({
+      message: '해당 포스트가 수정되었습니다.',
+    })
+  } catch (error) {
+    next(error)
+  }
+})
+
 module.exports = router
