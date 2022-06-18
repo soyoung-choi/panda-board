@@ -19,6 +19,6 @@ export const fetchPost = (id) => {
 }
 
 // 포스트 삭제
-export const removePost = (id) => {
+export const deletePost = (id) => {
   return instance.delete(`/posts/${id}`)
 }

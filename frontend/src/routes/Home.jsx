@@ -44,7 +44,8 @@ const Home = () => {
     <>
       <PostFactory />
 
-      {posts && posts.map((post) => <Post post={post} />)}
+      {posts &&
+        posts.map((post) => <Post post={post} key={post.id} id={post.id} />)}
 
       <p className="description" onClick={handleLogout}>
         로그아웃

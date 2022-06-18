@@ -28,12 +28,13 @@ router.get('/', verifyToken, async (req, res, next) => {
 // 포스트 등록
 router.post('/upload', verifyToken, async (req, res, next) => {
   const { title, contents } = req.body
+  const { userId } = res.locals
 
   try {
     await Post.create({
       title: title,
       contents: contents,
-      userId: res.locals.userId,
+      userId: userId,
     })
 
     res.json({
