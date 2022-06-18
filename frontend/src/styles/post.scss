@@ -1,0 +1,19 @@
+.post-card {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  background-color: $color-purple-light;
+
+  & h3 {
+    margin-bottom: 10px;
+  }
+
+  & .post-email {
+    margin-top: 10px;
+  }
+}
+

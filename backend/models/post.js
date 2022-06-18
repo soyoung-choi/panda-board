@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
   class Post extends Model {
     static associate(models) {
       Post.belongsTo(models.User, {
-        foreignKey: 'user_id',
+        foreignKey: 'userId',
+        as: 'user',
       })
     }
   }
@@ -16,9 +17,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       contents: {
         type: DataTypes.STRING(500),
-      },
-      image: {
-        type: DataTypes.BLOB('long'),
       },
     },
     {
