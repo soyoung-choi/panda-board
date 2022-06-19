@@ -24,15 +24,11 @@ const Home = () => {
   const handleLogout = async (e) => {
     e.preventDefault()
     try {
-      const {
-        data: { message },
-      } = await deleteToken()
-      alert(message)
+      await deleteToken()
       removeTokenCookie()
+      navigate('/login')
     } catch (error) {
       console.error(error)
-    } finally {
-      navigate('/login')
     }
   }
 

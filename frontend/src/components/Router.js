@@ -9,7 +9,7 @@ const AppRouter = () => {
   const [token, setToken] = useState(null)
 
   useEffect(() => {
-    const token = getTokenCookie('access_token')
+    const token = getTokenCookie()
 
     if (token) {
       setToken(token)

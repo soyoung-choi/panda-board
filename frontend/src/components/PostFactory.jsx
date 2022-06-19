@@ -22,13 +22,12 @@ const PostFactory = () => {
 
     try {
       await createPost(title, contents)
+      window.location.reload()
     } catch (error) {
       console.error(error)
     } finally {
       setTitle('')
       setContents('')
-
-      window.location.reload()
     }
   }
 

@@ -2,14 +2,14 @@ import Cookies from 'universal-cookie'
 
 const cookies = new Cookies()
 
-export const setTokenCookie = (access_token) => {
-  return cookies.set('access_token', access_token)
+export const setTokenCookie = (accessToken) => {
+  return cookies.set('accessToken', accessToken)
 }
 
 export const getTokenCookie = () => {
-  return cookies.get('access_token')
+  return cookies.get('accessToken')
 }
 
 export const removeTokenCookie = () => {
-  return cookies.remove('access_token')
+  return cookies.remove('accessToken')
 }

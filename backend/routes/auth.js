@@ -22,7 +22,7 @@ router.post('/login', isNotLoggedIn, async (req, res, next) => {
       return req.login(user, (err) => {
         if (err) return next(err)
 
-        const access_token = jwt.sign(
+        const accessToken = jwt.sign(
           { userId: user.id },
           process.env.JWT_SECRET,
           { expiresIn: '7d' }
@@ -30,7 +30,7 @@ router.post('/login', isNotLoggedIn, async (req, res, next) => {
 
         res.json({
           message: '로그인되었습니다.',
-          access_token,
+          accessToken,
         })
       })
     })(req, res, next)
@@ -40,13 +40,11 @@ router.post('/login', isNotLoggedIn, async (req, res, next) => {
 })
 
 // 로그아웃
-router.get('/logout', (req, res, next) => {
+router.get('/logout', isLoggedIn, (req, res, next) => {
   req.logout(req.user, (err) => {
     if (err) return next(err)
     req.session.destroy()
-    res.json({
-      message: '로그아웃되었습니다.',
-    })
+    res.redirect('/login')
   })
 })
 

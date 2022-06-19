@@ -16,4 +16,5 @@ const verifyToken = (req, res, next) => {
     res.status(401).json({ message: error })
   }
 }
+
 exports.verifyToken = verifyToken

@@ -27,10 +27,10 @@ const Login = () => {
 
     try {
       const {
-        data: { access_token },
+        data: { accessToken },
       } = await createToken(email, password)
 
-      if (access_token) setTokenCookie(access_token)
+      if (accessToken) setTokenCookie(accessToken)
       navigate('/')
     } catch (error) {
       alert(error.response.data.message)
@@ -68,10 +68,10 @@ const Login = () => {
         <button>로그인</button>
       </form>
 
-      <a className="btn btn-kakao" href="http://localhost:5001/auth/kakao">
+      {/* <a className="btn btn-kakao" href="http://localhost:5001/auth/kakao">
         <img src={kakaoIcon} alt="카카오 아이콘" />
         <span>카카오 로그인</span>
-      </a>
+      </a> */}
 
       <a className="description" href="/signup">
         회원가입

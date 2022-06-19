@@ -28,7 +28,7 @@ const SignUp = () => {
 
     try {
       const result = await createUser(email, password, passwordConfirm)
-      console.log(result)
+
       if (!result.data.success) {
         alert(result.data.message)
       } else {
